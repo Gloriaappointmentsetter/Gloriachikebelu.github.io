@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Gloria Chikebelu | Appointment Setter Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@700;800;900&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',Arial,sans-serif;background:#fff;color:#0e0e0e;font-size:10pt;line-height:1.6}
+
+/* ── PAGE LAYOUT ── */
+.page{max-width:800px;margin:0 auto;padding:0}
+
+/* ── HEADER / HERO ── */
+.hero{background:#0e0e0e;color:#fff;padding:48px 52px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;right:0;width:280px;height:100%;background:linear-gradient(to left,rgba(201,168,76,.07),transparent)}
+.hero-eyebrow{font-size:8pt;letter-spacing:.28em;text-transform:uppercase;color:#c9a84c;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:#c9a84c}
+.hero-name{font-family:'Playfair Display',Georgia,serif;font-size:42pt;font-weight:900;line-height:.9;margin-bottom:8px;color:#fff}
+.hero-name span{color:#c9a84c;display:block}
+.hero-role{font-family:'Cormorant Garamond',Georgia,serif;font-size:16pt;font-weight:300;font-style:italic;color:#d4c4a8;margin-bottom:20px}
+.hero-bio{font-size:9.5pt;color:#aaa;line-height:1.8;max-width:500px;margin-bottom:20px}
+.hero-bio strong{color:#ddd}
+.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.hero-tag{padding:4px 12px;border:1px solid rgba(201,168,76,.3);color:#e8d5a3;font-size:8pt;letter-spacing:.05em}
+.hero-contact{display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07)}
+.hc-item{display:flex;align-items:center;gap:8px;font-size:8.5pt;color:#888}
+.hc-item a{color:#c9a84c;text-decoration:none}
+.hc-icon{color:#c9a84c;font-size:11pt;width:14px;text-align:center}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:28px}
+.stat-cell{background:#0e0e0e;padding:18px 14px;text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:24pt;color:#fff;display:block;line-height:1;margin-bottom:4px}
+.stat-l{font-size:7pt;color:#555;letter-spacing:.07em;text-transform:uppercase;line-height:1.4}
+
+/* ── SECTION STRUCTURE ── */
+section{padding:36px 52px}
+section.alt{background:#faf8f4}
+section.dark{background:#0e0e0e;color:#fff}
+.sec-eyebrow{font-size:8pt;letter-spacing:.28em;text-transform:uppercase;color:#c9a84c;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.sec-eyebrow::before{content:'';width:24px;height:1px;background:#c9a84c}
+.sec-heading{font-family:'Playfair Display',Georgia,serif;font-size:22pt;font-weight:800;line-height:1.1;margin-bottom:10px}
+.sec-sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:12pt;font-weight:300;font-style:italic;color:#8a8278;line-height:1.55;max-width:520px;margin-bottom:28px}
+.dark .sec-heading{color:#fff}
+.dark .sec-sub{color:#666}
+
+/* ── ABOUT ── */
+.about-body{font-size:10pt;color:#444;line-height:1.85;margin-bottom:14px}
+.about-body strong{color:#0e0e0e;font-weight:500}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:28px}
+.val{background:#fff;padding:20px 18px;border-bottom:2px solid #c9a84c}
+.val-icon{font-size:16pt;margin-bottom:8px;display:block}
+.val-title{font-family:'Playfair Display',serif;font-size:11pt;font-weight:700;margin-bottom:5px}
+.val-desc{font-size:8.5pt;color:#8a8278;line-height:1.6}
+
+/* ── SERVICES ── */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:4px}
+.svc{background:#fff;padding:28px 24px}
+.svc-num{font-size:8pt;letter-spacing:.2em;color:#c9a84c;text-transform:uppercase;margin-bottom:10px}
+.svc-icon{font-size:20pt;display:block;margin-bottom:10px}
+.svc-title{font-family:'Playfair Display',serif;font-size:13pt;font-weight:700;margin-bottom:8px;line-height:1.2}
+.svc-desc{font-size:9pt;color:#555;line-height:1.75;margin-bottom:12px}
+.svc-list{list-style:none;margin-bottom:14px}
+.svc-list li{font-size:8.5pt;color:#8a8278;padding:4px 0;border-bottom:1px solid rgba(0,0,0,.05);display:flex;gap:7px}
+.svc-list li::before{content:'→';color:#c9a84c;font-size:8pt;flex-shrink:0}
+.svc-tag{font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;color:#c9a84c;font-weight:500}
+
+/* ── WHY ME ── */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:4px}
+.why{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:28px 22px}
+.why-num{font-family:'Cormorant Garamond',serif;font-size:38pt;font-weight:300;color:rgba(201,168,76,.15);line-height:1;margin-bottom:12px}
+.why-title{font-family:'Playfair Display',serif;font-size:12pt;color:#fff;margin-bottom:8px}
+.why-desc{font-size:8.5pt;color:#777;line-height:1.7}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:8px}
+.tg-label{font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:#c9a84c;margin-bottom:10px;display:block;margin-top:20px}
+.tg-label:first-child{margin-top:0}
+.tools-cloud{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.tool{padding:5px 12px;border:1px solid rgba(0,0,0,.1);background:#fff;font-size:8.5pt;color:#555}
+.skill-wrap{margin-bottom:20px}
+.skill-hdr{display:flex;justify-content:space-between;margin-bottom:7px}
+.skill-name{font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;color:#555}
+.skill-pct{font-family:'Cormorant Garamond',serif;font-size:12pt;color:#c9a84c}
+.skill-track{height:2px;background:rgba(0,0,0,.08)}
+.skill-bar{height:100%;background:linear-gradient(to right,#c9a84c,#e8d5a3)}
+
+/* ── EXPERIENCE ── */
+.exp-entry{display:grid;grid-template-columns:168px 1fr;gap:40px;padding:32px 0;border-bottom:1px solid rgba(0,0,0,.07)}
+.exp-entry:last-child{border-bottom:none}
+.exp-year{font-size:8.5pt;letter-spacing:.15em;text-transform:uppercase;color:#c9a84c;margin-bottom:5px}
+.exp-org{font-size:9pt;color:#8a8278;line-height:1.5}
+.exp-role{font-family:'Playfair Display',serif;font-size:16pt;font-weight:700;margin-bottom:10px;line-height:1.2}
+.exp-intro{font-size:9.5pt;color:#444;line-height:1.8;margin-bottom:16px;max-width:520px}
+.exp-bullets{list-style:none;margin-bottom:16px}
+.exp-bullets li{font-size:9pt;color:#666;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.05);display:flex;gap:10px;line-height:1.6}
+.exp-bullets li::before{content:'✦';color:#c9a84c;font-size:8pt;flex-shrink:0;padding-top:3px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{padding:4px 11px;background:#0e0e0e;color:#f7f4ef;font-size:7.5pt;letter-spacing:.07em;text-transform:uppercase}
+.pill-g{padding:4px 11px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:#c9a84c;font-size:7.5pt;letter-spacing:.07em;text-transform:uppercase}
+
+/* ── PROJECTS ── */
+.proj-card{border:1px solid rgba(255,255,255,.1);margin-bottom:3px;overflow:hidden}
+.proj-hdr{padding:28px 32px}
+.proj-num{font-size:8pt;letter-spacing:.22em;text-transform:uppercase;color:#c9a84c;margin-bottom:8px}
+.proj-title{font-family:'Playfair Display',serif;font-size:18pt;color:#fff;font-weight:700;margin-bottom:6px;line-height:1.2}
+.proj-sub{font-size:9pt;color:#666;font-style:italic}
+.proj-body{padding:0 32px 36px}
+.proj-overview{font-size:10pt;color:#aaa;line-height:1.85;border-left:2px solid #c9a84c;padding-left:18px;margin-bottom:28px}
+.proj-screens{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:20px}
+.ps{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:18px 20px}
+.ps-label{font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:#c9a84c;margin-bottom:6px;display:block}
+.ps-title{font-size:11pt;color:#ddd;font-weight:500;margin-bottom:6px}
+.ps-desc{font-size:8.5pt;color:#888;line-height:1.65}
+.outcome-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:18px 20px;margin-bottom:16px}
+.ob-label{font-size:8pt;letter-spacing:.15em;text-transform:uppercase;color:#c9a84c;margin-bottom:6px}
+.ob-text{font-size:9pt;color:#aaa;line-height:1.7}
+.ptags{display:flex;flex-wrap:wrap;gap:6px}
+.ptag{padding:5px 13px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);color:#e8d5a3;font-size:8pt;letter-spacing:.05em}
+
+/* ── PROCESS ── */
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:8px}
+.step{text-align:center;padding:0 6px}
+.step-circle{width:50px;height:50px;border-radius:50%;background:#fff;border:2px solid rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-family:'Playfair Display',serif;font-size:16pt;font-weight:700;color:#c9a84c}
+.step-title{font-family:'Playfair Display',serif;font-size:10.5pt;font-weight:700;margin-bottom:6px}
+.step-desc{font-size:8pt;color:#8a8278;line-height:1.6}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:4px}
+.tcard{background:#faf8f4;padding:28px 24px;position:relative;overflow:hidden}
+.tcard::before{content:'\201C';font-family:'Playfair Display',serif;font-size:72pt;color:rgba(201,168,76,.1);position:absolute;top:-8px;left:14px;line-height:1}
+.tcard-stars{color:#c9a84c;font-size:9pt;margin-bottom:10px}
+.tcard-text{font-family:'Cormorant Garamond',serif;font-size:11pt;font-style:italic;color:#444;line-height:1.7;margin-bottom:18px;position:relative;z-index:1}
+.tcard-author{display:flex;align-items:center;gap:10px}
+.tcard-avatar{width:36px;height:36px;border-radius:50%;background:#0e0e0e;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14pt;font-weight:700;color:#c9a84c;flex-shrink:0}
+.tcard-name{font-size:9pt;font-weight:500}
+.tcard-role{font-size:8pt;color:#8a8278;margin-top:2px}
+.tcard-note{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);padding:16px 20px;margin-top:16px;display:flex;gap:12px;align-items:flex-start}
+.tn-text{font-size:8.5pt;color:#666;line-height:1.65}
+.tn-text strong{color:#0e0e0e}
+
+/* ── BOOKING ── */
+.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.book-features{list-style:none;margin:20px 0 28px}
+.book-features li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:9.5pt;color:#aaa;line-height:1.6}
+.book-features li::before{content:'✦';color:#c9a84c;font-size:8pt;padding-top:3px;flex-shrink:0}
+.book-features li strong{color:#ddd}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:4px}
+.citem{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:16px 18px;text-decoration:none}
+.ci-icon{font-size:16pt;margin-bottom:6px;display:block}
+.ci-label{font-size:7.5pt;letter-spacing:.15em;text-transform:uppercase;color:#c9a84c;margin-bottom:3px;display:block}
+.ci-val{font-size:8.5pt;color:#aaa}
+.cal-box{background:#f7f4ef;padding:36px 32px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;min-height:320px}
+.cal-icon{font-size:40pt;margin-bottom:18px}
+.cal-title{font-family:'Playfair Display',serif;font-size:16pt;color:#0e0e0e;margin-bottom:10px}
+.cal-desc{font-size:9pt;color:#8a8278;line-height:1.75;max-width:240px;margin-bottom:20px}
+.cal-steps{text-align:left;background:#fff;padding:18px 20px;width:100%;max-width:280px;margin-bottom:18px}
+.cs-label{font-size:8pt;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:10px}
+.cs-list{padding-left:16px;font-size:8.5pt;color:#8a8278;line-height:2}
+.cal-btn{display:inline-block;padding:12px 28px;background:#c9a84c;color:#0e0e0e;font-size:9pt;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+
+/* ── CONTACT STRIP ── */
+.cstrip{background:#c9a84c;padding:40px 52px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.cstrip-h{font-family:'Playfair Display',serif;font-size:20pt;font-weight:700;color:#0e0e0e}
+.cstrip-h em{font-style:italic;font-weight:400}
+.cstrip-links{display:flex;gap:8px;flex-wrap:wrap}
+.cstrip-link{display:flex;align-items:center;gap:8px;padding:10px 20px;background:#0e0e0e;color:#fff;text-decoration:none;font-size:8.5pt;letter-spacing:.1em;text-transform:uppercase}
+
+/* ── FOOTER ── */
+footer{background:#0e0e0e;padding:28px 52px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(255,255,255,.04)}
+.f-logo{font-family:'Playfair Display',serif;font-size:15pt;color:#fff}.f-logo em{color:#c9a84c;font-style:normal}
+.f-links{display:flex;gap:18px}
+.f-links a{font-size:8.5pt;color:#444;text-decoration:none}
+.f-copy{font-size:8pt;color:#333;width:100%;text-align:center;padding-top:14px;border-top:1px solid rgba(255,255,255,.04)}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:rgba(255,255,255,.06);margin:0 32px}
+
+@media print{
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{max-width:100%}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Appointment Setter &amp; Scheduling Specialist</div>
+  <h1 class="hero-name">Gloria<span>Chikebelu</span></h1>
+  <p class="hero-role">Your Calendar, Perfectly Managed.</p>
+  <p class="hero-bio">
+    A <strong>detail-obsessed appointment setter</strong> based in Nigeria, specialising in turning scattered leads into confirmed, high-quality bookings. I manage your entire scheduling pipeline — from first outreach to confirmed meeting — so you can focus entirely on <strong>closing and delivering.</strong>
+  </p>
+  <p class="hero-bio">
+    With hands-on experience in <strong>CRM tools, workflow automation, and client communication</strong>, I bring structure, professionalism, and follow-through to every calendar I manage.
+  </p>
+  <div class="hero-tags">
+    <span class="hero-tag">Calendly Setup</span>
+    <span class="hero-tag">HubSpot CRM</span>
+    <span class="hero-tag">Appointment Setting</span>
+    <span class="hero-tag">Lead Qualification</span>
+    <span class="hero-tag">Monday.com</span>
+    <span class="hero-tag">Workflow Automation</span>
+    <span class="hero-tag">Client Communication</span>
+    <span class="hero-tag">Remote · Flexible</span>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-cell"><span class="stat-n">100%</span><span class="stat-l">Integrity &amp; Accountability</span></div>
+    <div class="stat-cell"><span class="stat-n">48h</span><span class="stat-l">Onboarding Timeline</span></div>
+    <div class="stat-cell"><span class="stat-n">5+</span><span class="stat-l">CRM &amp; Booking Platforms</span></div>
+    <div class="stat-cell"><span class="stat-n">∞</span><span class="stat-l">Attention to Detail</span></div>
+  </div>
+  <div class="hero-contact">
+    <div class="hc-item"><span class="hc-icon">📧</span><a href="mailto:gloriaogochukwu832@gmail.com">gloriaogochukwu832@gmail.com</a></div>
+    <div class="hc-item"><span class="hc-icon">📞</span><span>+234 904 373 1354</span></div>
+    <div class="hc-item"><span class="hc-icon">💼</span><a href="https://www.linkedin.com/in/gloria-chikebelu-aa468b365">linkedin.com/in/gloria-chikebelu-aa468b365</a></div>
+    <div class="hc-item"><span class="hc-icon">📍</span><span>Abia, Nigeria · Remote Available Worldwide</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="alt" id="about">
+  <p class="sec-eyebrow">Who I Am</p>
+  <h2 class="sec-heading">A Professional Who Cares About Your Time</h2>
+  <p class="sec-sub">Disciplined, dependable, and driven by results — every booking I make is backed by integrity.</p>
+  <p class="about-body">
+    I'm <strong>Gloria Chikebelu Ogochukwu</strong> — a trained appointment setter and scheduling specialist who understands that every missed booking, every late follow-up, and every no-show is lost revenue. My job is to make sure that never happens on my watch.
+  </p>
+  <p class="about-body">
+    My background in <strong>IT support, CRM management, and digital workflow automation</strong> (Digital Witch IT Skills, 2024–2025) gave me real-world exposure to how businesses lose efficiency when their scheduling and client communication aren't handled with precision. I became obsessed with fixing that.
+  </p>
+  <p class="about-body">
+    I hold a <strong>B.Sc. in Home Science &amp; Management</strong> from Joseph Sarwuan Tarka University — a discipline that gave me a strong foundation in organisational planning, human behaviour, and resource coordination. I'm known by the people I've worked with for being <strong>honest, meticulous, and dependable.</strong> I don't cut corners, I follow through on commitments, and I treat every client's calendar as if it were my own business on the line.
+  </p>
+  <div class="values-grid">
+    <div class="val"><span class="val-icon">🎯</span><p class="val-title">Precision-Driven</p><p class="val-desc">Every detail matters — names, times, time zones, follow-up windows. I get them right, every time.</p></div>
+    <div class="val"><span class="val-icon">🔐</span><p class="val-title">Trustworthy &amp; Discreet</p><p class="val-desc">You're giving me access to your calendar and clients. I take that responsibility seriously.</p></div>
+    <div class="val"><span class="val-icon">⚡</span><p class="val-title">Fast to Onboard</p><p class="val-desc">Ready to start within 48 hours. Minimal hand-holding required — I figure things out.</p></div>
+    <div class="val"><span class="val-icon">📈</span><p class="val-title">Results-Focused</p><p class="val-desc">I don't just book meetings — I book the right meetings, with the right people, at the right time.</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="sec-eyebrow">What I Offer</p>
+  <h2 class="sec-heading">Scheduling Services Built for Growth</h2>
+  <p class="sec-sub">Every service is designed to reduce no-shows, fill your pipeline, and give you time back.</p>
+  <div class="svc-grid">
+    <div class="svc">
+      <p class="svc-num">01</p><span class="svc-icon">📅</span>
+      <h3 class="svc-title">Appointment Setting</h3>
+      <p class="svc-desc">I proactively reach out to your leads, qualify them, and book confirmed meetings directly onto your calendar.</p>
+      <ul class="svc-list">
+        <li>Outbound outreach via email, DM, or messaging</li>
+        <li>Lead pre-qualification using your criteria</li>
+        <li>Confirmation messages and reminder sequences</li>
+        <li>Reschedule &amp; no-show follow-up handling</li>
+        <li>Daily/weekly booking report summaries</li>
+      </ul>
+      <span class="svc-tag">Outbound · Inbound · Follow-ups</span>
+    </div>
+    <div class="svc">
+      <p class="svc-num">02</p><span class="svc-icon">⚙️</span>
+      <h3 class="svc-title">Calendly Setup &amp; Management</h3>
+      <p class="svc-desc">Full Calendly configuration built for your specific workflow — from event types to CRM integrations.</p>
+      <ul class="svc-list">
+        <li>Event type creation (discovery, follow-up, etc.)</li>
+        <li>Buffer times, booking limits &amp; availability rules</li>
+        <li>Automated email &amp; SMS reminder setup</li>
+        <li>CRM, Zoom, Google Meet integrations</li>
+        <li>Team scheduling &amp; round-robin configuration</li>
+      </ul>
+      <span class="svc-tag">Setup · Automation · Maintenance</span>
+    </div>
+    <div class="svc">
+      <p class="svc-num">03</p><span class="svc-icon">🔁</span>
+      <h3 class="svc-title">CRM &amp; Workflow Automation</h3>
+      <p class="svc-desc">Connect your scheduling with your CRM so every booked appointment triggers the right next action — automatically.</p>
+      <ul class="svc-list">
+        <li>HubSpot pipeline setup &amp; contact management</li>
+        <li>Freshdesk ticket creation from booking events</li>
+        <li>Trello / Monday.com task automation</li>
+        <li>Dropbox file organisation for meeting prep</li>
+        <li>Workflow documentation and team SOPs</li>
+      </ul>
+      <span class="svc-tag">HubSpot · Trello · Monday.com</span>
+    </div>
+    <div class="svc">
+      <p class="svc-num">04</p><span class="svc-icon">📞</span>
+      <h3 class="svc-title">Lead Qualification &amp; Outreach</h3>
+      <p class="svc-desc">Not every lead deserves a slot on your calendar. I screen contacts against your ideal client profile before a meeting is confirmed.</p>
+      <ul class="svc-list">
+        <li>Qualification script creation for your offer</li>
+        <li>Email and message outreach copywriting</li>
+        <li>Objection handling and rebooking</li>
+        <li>Lead scoring and prioritisation</li>
+        <li>Pipeline stage updates in your CRM</li>
+      </ul>
+      <span class="svc-tag">Lead Gen · Scripting · Qualification</span>
+    </div>
+    <div class="svc">
+      <p class="svc-num">05</p><span class="svc-icon">📋</span>
+      <h3 class="svc-title">Reporting &amp; Documentation</h3>
+      <p class="svc-desc">Accurate, clear records of every scheduling activity — so you always know what's booked, what was missed, and what the numbers say.</p>
+      <ul class="svc-list">
+        <li>Weekly appointment activity summaries</li>
+        <li>Show rate, no-show &amp; cancellation tracking</li>
+        <li>Lead source performance reporting</li>
+        <li>Booking trend analysis and recommendations</li>
+        <li>Custom report templates for your business</li>
+      </ul>
+      <span class="svc-tag">Reports · Logs · Analytics</span>
+    </div>
+    <div class="svc">
+      <p class="svc-num">06</p><span class="svc-icon">💬</span>
+      <h3 class="svc-title">Client Communications</h3>
+      <p class="svc-desc">Every message your clients receive shapes how they see your brand. I handle all appointment-related touchpoints professionally.</p>
+      <ul class="svc-list">
+        <li>Booking confirmation and welcome messages</li>
+        <li>24-hour and 1-hour reminder sequences</li>
+        <li>Post-call thank-you and next-step follow-ups</li>
+        <li>Re-engagement messages for cold leads</li>
+        <li>Communication templates library setup</li>
+      </ul>
+      <span class="svc-tag">Email · Messaging · Follow-up</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE ME -->
+<section class="dark" id="why">
+  <p class="sec-eyebrow" style="color:#c9a84c">Why Gloria?</p>
+  <h2 class="sec-heading">What Sets Me Apart</h2>
+  <p class="sec-sub">There are lots of virtual assistants. Here's why clients who care about quality choose to work with me.</p>
+  <div class="why-grid">
+    <div class="why"><p class="why-num">01</p><h3 class="why-title">I Take Ownership</h3><p class="why-desc">I don't wait to be told what needs doing. When I see a gap in your scheduling system, I flag it and fix it. You hired me to manage your calendar — not to ask permission at every step.</p></div>
+    <div class="why"><p class="why-num">02</p><h3 class="why-title">Integrity is Non-Negotiable</h3><p class="why-desc">I will never confirm a booking I haven't verified. I don't pad numbers, I don't overpromise, and I don't cover up mistakes. You'll always get the truth from me.</p></div>
+    <div class="why"><p class="why-num">03</p><h3 class="why-title">I Understand Business Context</h3><p class="why-desc">My management training means I think beyond the task. I understand why a no-show hurts your revenue, and why the right qualification process is worth the extra five minutes.</p></div>
+    <div class="why"><p class="why-num">04</p><h3 class="why-title">I Learn Fast &amp; Ask Smart Questions</h3><p class="why-desc">I come prepared. Before I ask you something, I try to figure it out. When I do ask, it's because the answer will genuinely make a difference to how I serve you.</p></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="alt" id="skills">
+  <p class="sec-eyebrow">Capabilities</p>
+  <h2 class="sec-heading">Tools &amp; Skills I Work With</h2>
+  <p class="sec-sub">Fully equipped to plug into your existing stack — or help you build one from scratch.</p>
+  <div class="skills-grid">
+    <div>
+      <span class="tg-label">Scheduling &amp; Booking</span>
+      <div class="tools-cloud"><span class="tool">Calendly</span><span class="tool">Google Calendar</span><span class="tool">Acuity Scheduling</span><span class="tool">Outlook Calendar</span></div>
+      <span class="tg-label">CRM &amp; Communication</span>
+      <div class="tools-cloud"><span class="tool">HubSpot CRM</span><span class="tool">Freshdesk</span><span class="tool">Gmail</span><span class="tool">Zoom</span><span class="tool">Google Meet</span></div>
+      <span class="tg-label">Project Management</span>
+      <div class="tools-cloud"><span class="tool">Monday.com</span><span class="tool">Trello</span><span class="tool">Dropbox</span><span class="tool">Google Drive</span><span class="tool">Notion</span></div>
+      <span class="tg-label">Outreach &amp; Lead Gen</span>
+      <div class="tools-cloud"><span class="tool">Email Outreach</span><span class="tool">LinkedIn Messaging</span><span class="tool">WhatsApp Business</span><span class="tool">Telemarketing</span></div>
+    </div>
+    <div>
+      <div class="skill-wrap"><div class="skill-hdr"><span class="skill-name">Appointment Setting &amp; Scheduling</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-bar" style="width:95%"></div></div></div>
+      <div class="skill-wrap"><div class="skill-hdr"><span class="skill-name">Customer Communication &amp; Follow-up</span><span class="skill-pct">93%</span></div><div class="skill-track"><div class="skill-bar" style="width:93%"></div></div></div>
+      <div class="skill-wrap"><div class="skill-hdr"><span class="skill-name">Calendly Setup &amp; Configuration</span><span class="skill-pct">91%</span></div><div class="skill-track"><div class="skill-bar" style="width:91%"></div></div></div>
+      <div class="skill-wrap"><div class="skill-hdr"><span class="skill-name">CRM Management (HubSpot / Freshdesk)</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-bar" style="width:88%"></div></div></div>
+      <div class="skill-wrap"><div class="skill-hdr"><span class="skill-name">Documentation &amp; Reporting</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-bar" style="width:90%"></div></div></div>
+      <div class="skill-wrap"><div class="skill-hdr"><span class="skill-name">Workflow Automation &amp; Integrations</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-bar" style="width:85%"></div></div></div>
+      <div class="skill-wrap"><div class="skill-hdr"><span class="skill-name">Lead Qualification &amp; Outreach</span><span class="skill-pct">87%</span></div><div class="skill-track"><div class="skill-bar" style="width:87%"></div></div></div>
+      <div class="skill-wrap"><div class="skill-hdr"><span class="skill-name">Task &amp; Project Management</span><span class="skill-pct">89%</span></div><div class="skill-track"><div class="skill-bar" style="width:89%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="sec-eyebrow">Background</p>
+  <h2 class="sec-heading">Experience &amp; Education</h2>
+  <p class="sec-sub">Every role I've held has sharpened a different edge of the skill set I bring to your scheduling pipeline.</p>
+
+  <div class="exp-entry">
+    <div>
+      <p class="exp-year">2024 – 2025</p>
+      <p class="exp-org">Digital Witch IT Skills<br>Lagos, Nigeria<br><em style="font-size:8pt;color:#c9a84c">Internship</em></p>
+    </div>
+    <div>
+      <h3 class="exp-role">Technical &amp; Support Assistant</h3>
+      <p class="exp-intro">Built the operational and digital foundations I now apply to every scheduling engagement. Working inside a tech-focused environment, I was exposed to real client workflows, task management systems, and the daily discipline of professional communication and reporting.</p>
+      <ul class="exp-bullets">
+        <li>Supported end-to-end workflow execution using Trello, Monday.com, and Dropbox — managing task boards, tracking progress, and maintaining accurate documentation across multiple concurrent projects</li>
+        <li>Handled technical troubleshooting and client documentation — communicating directly with users to diagnose issues, log cases, and resolve escalations within agreed timeframes</li>
+        <li>Tracked deliverables, deadlines, and status updates in real-time — maintaining living records that team members and supervisors could rely on for project visibility</li>
+        <li>Collaborated cross-functionally with colleagues to resolve user issues, escalating complex cases appropriately and following up to ensure full resolution</li>
+        <li>Developed structured problem-solving habits, professional written communication standards, and a client-first approach to service delivery</li>
+      </ul>
+      <div class="pills"><span class="pill">Workflow Management</span><span class="pill">Client Support</span><span class="pill">Documentation</span><span class="pill">Trello</span><span class="pill">Monday.com</span><span class="pill">Escalation Handling</span></div>
+    </div>
+  </div>
+
+  <div class="exp-entry">
+    <div>
+      <p class="exp-year">2024</p>
+      <p class="exp-org">Digital Witch<br>Training Programme<br><em style="font-size:8pt;color:#c9a84c">Certification</em></p>
+    </div>
+    <div>
+      <h3 class="exp-role">In-Demand IT &amp; Business Skills</h3>
+      <p class="exp-intro">A comprehensive professional skills programme covering the tools and competencies that modern remote businesses rely on — from customer service to CRM management and workflow automation.</p>
+      <ul class="exp-bullets">
+        <li><strong>Customer Service:</strong> Handling inbound client enquiries, managing expectations, and communicating professionally across email, phone, and messaging platforms</li>
+        <li><strong>Virtual Assistance:</strong> Calendar management, inbox organisation, meeting scheduling, and executive support functions for remote business owners</li>
+        <li><strong>CRM Management:</strong> Practical use of CRM systems to manage contact records, track pipeline stages, log communication history, and generate activity reports</li>
+        <li><strong>Workflow Automation:</strong> Built automated sequences to reduce manual tasks and create repeatable, scalable business processes</li>
+        <li><strong>Appointment Handling:</strong> Dedicated training in scheduling, confirmation, reminder, and reschedule workflows using modern booking tools</li>
+        <li><strong>Lead Generation &amp; Telemarketing:</strong> Identifying, qualifying, and converting outbound leads into confirmed meetings and sales opportunities</li>
+      </ul>
+      <div class="pills"><span class="pill-g">Customer Service</span><span class="pill-g">Virtual Assistance</span><span class="pill-g">CRM Management</span><span class="pill-g">Workflow Automation</span><span class="pill-g">Appointment Handling</span><span class="pill-g">Lead Generation</span><span class="pill-g">Telemarketing</span></div>
+    </div>
+  </div>
+
+  <div class="exp-entry">
+    <div>
+      <p class="exp-year">Graduated 2024</p>
+      <p class="exp-org">Joseph Sarwuan Tarka<br>University, Makurdi<br><em style="font-size:8pt;color:#c9a84c">Degree</em></p>
+    </div>
+    <div>
+      <h3 class="exp-role">B.Sc. Home Science &amp; Management</h3>
+      <p class="exp-intro">A management-focused degree that equipped me with a thorough understanding of organisational systems, human coordination, and resource planning — disciplines that map directly onto managing schedules, client pipelines, and professional communications.</p>
+      <ul class="exp-bullets">
+        <li>Studied organisational behaviour, management principles, and operational planning — developing the structured mindset I apply to every workflow I build or optimise</li>
+        <li>Worked on group coordination projects requiring clear role assignment, deadline management, and accountability — real preparation for managing appointment pipelines</li>
+        <li>Developed strong written and verbal communication skills through academic coursework and presentations</li>
+      </ul>
+      <div class="pills"><span class="pill">Management Principles</span><span class="pill">Organisational Behaviour</span><span class="pill">Resource Coordination</span><span class="pill">Communication</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="dark" id="projects">
+  <p class="sec-eyebrow" style="color:#c9a84c">Proof of Work</p>
+  <h2 class="sec-heading">Featured Projects</h2>
+  <p class="sec-sub">Real work. Real tools. Real results — not just claims on a page.</p>
+
+  <div class="proj-card">
+    <div class="proj-hdr">
+      <p class="proj-num">Project 01 · 2025</p>
+      <h3 class="proj-title">Monday.com Task &amp; Workflow Management</h3>
+      <p class="proj-sub">Full board setup, team collaboration, automation, and calendar planning — live collaborative project</p>
+    </div>
+    <div class="divider"></div>
+    <div class="proj-body">
+      <p class="proj-overview">
+        Designed and managed a complete task management system on Monday.com for a real collaborative project with a team member. I was responsible for the full board architecture — creating task structure, assigning owners, setting priorities and deadlines, building automation rules, and using the calendar view for workload visualisation. The project demonstrated my ability to run a scheduling and workflow system from zero, without supervision, while maintaining full team accountability through comment threads and activity logs.
+      </p>
+      <div class="proj-screens">
+        <div class="ps">
+          <span class="ps-label">📋 Feature 01</span>
+          <p class="ps-title">Task Board Architecture</p>
+          <p class="ps-desc">Built a Weekly Task board with two groups — To-Do and Completed. Each task included a clear title, assigned owner, status indicator (Working On It / Done), priority level (High / Medium / Low), due date, and notes column — giving both team members instant visibility without status update messages.</p>
+        </div>
+        <div class="ps">
+          <span class="ps-label">⚙️ Feature 02</span>
+          <p class="ps-title">Workflow Automation Rule</p>
+          <p class="ps-desc">Created a board automation: "When Status changes to Done → automatically move item to Completed group." This eliminated manual task archiving, keeping the board accurate in real time. Configured, tested, and verified in the Manage Automations panel with run history to confirm correct operation.</p>
+        </div>
+        <div class="ps">
+          <span class="ps-label">📅 Feature 03</span>
+          <p class="ps-title">Calendar View &amp; Deadline Planning</p>
+          <p class="ps-desc">Used Monday.com's Calendar view to map all tasks across February 2026. Tasks were colour-coded by status — making overdue and upcoming deadlines immediately visible. Used to balance team workload across the week and resolve deadline overlaps before work began.</p>
+        </div>
+        <div class="ps">
+          <span class="ps-label">💬 Feature 04</span>
+          <p class="ps-title">Team Collaboration &amp; Communication</p>
+          <p class="ps-desc">Used task-level comment threads to coordinate with team members — tagging with @mentions to request schedule verifications and status confirmations. Activity log tracked every change and status update in real time, providing a transparent audit trail of all decisions and progress.</p>
+        </div>
+      </div>
+      <div class="outcome-box">
+        <p class="ob-label">Key Outcome</p>
+        <p class="ob-text">Delivered a fully functional, automated task management board for a live team project — demonstrating board design, automation configuration, deadline planning, and collaborative communication. All features were implemented independently and documented with screenshots as proof of execution.</p>
+      </div>
+      <div class="ptags">
+        <span class="ptag">Monday.com</span><span class="ptag">Board Architecture</span><span class="ptag">Automation Rules</span><span class="ptag">Calendar Planning</span><span class="ptag">Team Collaboration</span><span class="ptag">Status Tracking</span><span class="ptag">Priority Management</span><span class="ptag">Activity Logging</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="alt" id="process">
+  <p class="sec-eyebrow">How It Works</p>
+  <h2 class="sec-heading">My Onboarding Process</h2>
+  <p class="sec-sub">From first call to fully running calendar — here's exactly what working with me looks like.</p>
+  <div class="process-steps">
+    <div class="step"><div class="step-circle">1</div><h4 class="step-title">Discovery Call</h4><p class="step-desc">20 minutes understanding your business, scheduling pain points, tools used, and what an ideal booked week looks like for you.</p></div>
+    <div class="step"><div class="step-circle">2</div><h4 class="step-title">Audit &amp; Plan</h4><p class="step-desc">I review your existing setup, identify gaps, and deliver a written plan covering what I'll do, how I'll do it, and what to expect week one.</p></div>
+    <div class="step"><div class="step-circle">3</div><h4 class="step-title">Setup &amp; Configure</h4><p class="step-desc">I build your Calendly, connect your CRM, create email templates, configure automations, and test everything end-to-end. Ready in 48 hours.</p></div>
+    <div class="step"><div class="step-circle">4</div><h4 class="step-title">Go Live &amp; Manage</h4><p class="step-desc">Your pipeline is active. I handle daily outreach, confirmations, reminders, reschedules, and follow-ups — keeping your calendar full.</p></div>
+    <div class="step"><div class="step-circle">5</div><h4 class="step-title">Report &amp; Optimise</h4><p class="step-desc">Weekly reports on appointments booked, show rates, and pipeline health. I identify what's working and make changes proactively.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="sec-eyebrow">What Others Say</p>
+  <h2 class="sec-heading">Trusted by the People I Work With</h2>
+  <div class="testi-grid">
+    <div class="tcard">
+      <p class="tcard-stars">★★★★★</p>
+      <p class="tcard-text">"Gloria is exactly the kind of person you want managing your calendar. She's proactive, organised, and genuinely cares about getting things right. Our show rate improved from the very first week."</p>
+      <div class="tcard-author"><div class="tcard-avatar">O</div><div><p class="tcard-name">Colleague — Digital Witch</p><p class="tcard-role">Collaborative Project Partner</p></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-stars">★★★★★</p>
+      <p class="tcard-text">"What impressed me most was her attention to detail. Every task was documented, every deadline tracked. She built the Monday.com board from nothing and had it running better than what we had before in under a day."</p>
+      <div class="tcard-author"><div class="tcard-avatar">C</div><div><p class="tcard-name">Caleb — Team Collaborator</p><p class="tcard-role">Monday.com Project · 2025</p></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-stars">★★★★★</p>
+      <p class="tcard-text">"Fast learner, honest communicator, and genuinely reliable. She asked the right questions, figured things out quickly, and kept me updated without me having to chase. Exactly what you want in a remote support role."</p>
+      <div class="tcard-author"><div class="tcard-avatar">S</div><div><p class="tcard-name">Supervisor — Digital Witch IT</p><p class="tcard-role">Internship · 2024–2025</p></div></div>
+    </div>
+  </div>
+  <div class="tcard-note">
+    <span style="font-size:16pt">💡</span>
+    <p class="tn-text"><strong>Growing testimonials list:</strong> I'm early in my independent career and building my client base. The quotes above are based on real working relationships during my internship and training. I'd love for you to become one of my first named clients — and be the first name on this wall.</p>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="dark" id="book">
+  <p class="sec-eyebrow" style="color:#c9a84c">Let's Work Together</p>
+  <h2 class="sec-heading">Book a Free Discovery Call</h2>
+  <p class="sec-sub">20 minutes. No pitch. Just a real conversation about your scheduling needs — and whether I'm the right fit.</p>
+  <div class="booking-inner">
+    <div>
+      <ul class="book-features">
+        <li><strong>Free 20-minute call</strong> — zero commitment, zero sales pressure</li>
+        <li><strong>Flexible time zones</strong> — available Mon–Fri, adjustable for your region</li>
+        <li><strong>Same-day response</strong> — I reply to all enquiries within 24 hours</li>
+        <li><strong>Written onboarding plan</strong> — shared within 24 hours of the call</li>
+        <li><strong>Live in 48 hours</strong> — once we agree, I'm set up and running fast</li>
+        <li><strong>Ongoing reporting</strong> — weekly updates from day one, no chasing required</li>
+      </ul>
+      <div class="contact-grid">
+        <div class="citem"><span class="ci-icon">📧</span><span class="ci-label">Email</span><span class="ci-val">gloriaogochukwu832@gmail.com</span></div>
+        <div class="citem"><span class="ci-icon">📞</span><span class="ci-label">Phone / WhatsApp</span><span class="ci-val">+234 904 373 1354</span></div>
+        <div class="citem"><span class="ci-icon">💼</span><span class="ci-label">LinkedIn</span><span class="ci-val">gloria-chikebelu-aa468b365</span></div>
+        <div class="citem"><span class="ci-icon">📍</span><span class="ci-label">Location</span><span class="ci-val">Abia, Nigeria · Remote Worldwide</span></div>
+      </div>
+    </div>
+    <div class="cal-box">
+      <div class="cal-icon">📆</div>
+      <h3 class="cal-title">Live Booking Calendar</h3>
+      <p class="cal-desc">Connect your Calendly account to enable real-time appointment booking directly on the web version of this portfolio.</p>
+      <div class="cal-steps">
+        <p class="cs-label">To activate:</p>
+        <ol class="cs-list">
+          <li>Create a free Calendly account</li>
+          <li>Set up a "20-Min Discovery Call" event</li>
+          <li>Add your URL to the HTML portfolio file</li>
+          <li>Uncomment the Calendly script tag</li>
+        </ol>
+      </div>
+      <a href="mailto:gloriaogochukwu832@gmail.com" class="cal-btn">📧 Email to Book a Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<div class="cstrip">
+  <h2 class="cstrip-h">Let's get your calendar <em>working for you.</em></h2>
+  <div class="cstrip-links">
+    <a href="mailto:gloriaogochukwu832@gmail.com" class="cstrip-link">📧 Email Me</a>
+    <a href="tel:+2349043731354" class="cstrip-link">📞 Call / WhatsApp</a>
+    <a href="https://www.linkedin.com/in/gloria-chikebelu-aa468b365" class="cstrip-link">💼 LinkedIn</a>
+    <a href="#book" class="cstrip-link">📅 Book a Call</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-logo">Gloria <em>C.</em></span>
+  <div class="f-links">
+    <a href="#about">About</a><a href="#services">Services</a><a href="#skills">Skills</a>
+    <a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#book">Book</a>
+  </div>
+  <p class="f-copy">© 2025 Gloria Chikebelu Ogochukwu · Appointment Setter &amp; Scheduling Specialist · Abia, Nigeria · Remote Available Worldwide</p>
+</footer>
+
+</div>
+</body>
+</html>
